@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="PizzaTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厨师 5号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GR-oj-pRE">
+                        <rect key="frame" x="16" y="11.5" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="Ix6-7h-pGZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWI-jF-M10">
+                        <rect key="frame" x="94" y="11.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxU-WH-7sj">
+                        <rect key="frame" x="254" y="7" width="31" height="30"/>
+                        <state key="normal" title="发送"/>
+                        <state key="selected" title="已发送"/>
+                        <connections>
+                            <action selector="postAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xP0-GH-ZnM"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1GR-oj-pRE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B4L-N7-Nlv"/>
+                    <constraint firstItem="1GR-oj-pRE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HiG-UE-3hU"/>
+                    <constraint firstItem="bxU-WH-7sj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Je1-Tl-j3k"/>
+                    <constraint firstItem="wWI-jF-M10" firstAttribute="centerY" secondItem="1GR-oj-pRE" secondAttribute="centerY" id="ZbW-AH-Vr2"/>
+                    <constraint firstItem="wWI-jF-M10" firstAttribute="leading" secondItem="1GR-oj-pRE" secondAttribute="trailing" constant="8" id="fw5-LX-3X0"/>
+                    <constraint firstAttribute="trailing" secondItem="bxU-WH-7sj" secondAttribute="trailing" constant="8" id="jXE-Xd-Lhs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="order" destination="1GR-oj-pRE" id="HWo-yb-Nx9"/>
+                <outlet property="post" destination="bxU-WH-7sj" id="kH6-BV-MLQ"/>
+                <outlet property="progress" destination="wWI-jF-M10" id="jPI-yN-Nic"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="90"/>
+        </tableViewCell>
+    </objects>
+</document>
