@@ -68,7 +68,7 @@
     if(!self.lastP){
         self.lastP = _orderList.firstObject;
         for(Pizza * pizza in self.orderList){
-            if(pizza.stage == Pizza_State_Yes){
+            if(pizza.stage >= Pizza_State_Yes){
                 [self.completePizzas addObject:pizza];
                 self.lastP = pizza;
             }else{
@@ -135,14 +135,14 @@
     
     self.indexx++;
     
-    if(self.lastP == self.orderList.lastObject){
+    if(self.lastP.stage >= Pizza_State_Yes && self.lastP == self.orderList.lastObject){
         [self info:[NSString stringWithFormat:@"--- : %@ 订单都做完了 ------ thread:%@",self.name,[NSThread currentThread]]];
         _isDoPizza = NO;
         [self pauseTimer];
         self.indexx = 0;
         return;
     }
-    self.nextP = self.lastP.stage ==  Pizza_State_Yes ? [self.orderList objectAtIndex:[self.orderList indexOfObject:self.lastP] + 1] : self.lastP;
+    self.nextP = self.lastP.stage >=  Pizza_State_Yes ? [self.orderList objectAtIndex:[self.orderList indexOfObject:self.lastP] + 1] : self.lastP;
     self.nextP.progress = (float)self.indexx / (float)_perSpeed;
     
     [self info:[NSString stringWithFormat:@"--- : %@ 正在做 %lu pizza 完成百分比 : %f ------ thread:%@",self.name,(unsigned long)self.nextP.orderId, self.nextP.progress ,[NSThread currentThread]]];
@@ -171,6 +171,7 @@
 }
 -(void) resumeTimer{
     if(self.timer){
+        
         dispatch_resume(_timer);
     }
 }
@@ -186,8 +187,8 @@
     NSString * info = string;
     NSLog(@"%@",info);
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(_infoBlock){
-            _infoBlock(self,nil,info);
+        if(self.infoBlock){
+            self.infoBlock(self,nil,info);
         }
     });
 }
